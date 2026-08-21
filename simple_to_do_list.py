@@ -2,15 +2,20 @@ tasks = []
 
 
 def add_task():
-    print("")
+    input_task = input("Enter task: ")
+    tasks.append(input_task)
 
 
 def view_tasks():
-    print("")
+    print("===== YOUR TASKS ===== ")
+    for i, tasks in enumerate(tasks, start=1):
+        print(i)
 
 
 def remove_task():
-    print("")
+    task_remove = int(input("Enter task number to remove: "))
+    updated_tasks = tasks.pop(task_remove)
+    print(updated_tasks)
 
 
 while True:
@@ -24,13 +29,16 @@ while True:
     choice = int(input("Choose an option: "))
 
     if choice == 1:
-        add_task()
+        add = add_task()
+        tasks = add
+        print("Task added successfully!")
 
     elif choice == 2:
         view_tasks()
 
     elif choice == 3:
-        remove_task()
+        tasks = remove_task()
+        updated_tasks = tasks
 
     elif choice == 4:
         print("Thank you for using the To-Do List!")
