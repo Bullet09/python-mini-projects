@@ -3,10 +3,10 @@ balance = 10000
 
 def check_balance():
     print("\n===== BALANCE =====")
-    return
+    print("Current balance: ", balance)
 
 
-def deposit(amount_deposit, balance):
+def deposit():
     amount_deposit = int(input("\nEnter amount to deposit: "))
     new_balance = amount_deposit + balance
     return new_balance
@@ -15,15 +15,22 @@ def deposit(amount_deposit, balance):
 def withdraw():
     amount_withdraw = int(input("Enter amount to withdraw: "))
 
-    if amount_withdraw > balance:
-        print("\nInsufficient balance!")
+    if amount_withdraw == balance:
+        exact_withdraw = balance - amount_withdraw
+        print("Remaining balance: ", exact_withdraw)
+        return exact_withdraw
+
     elif amount_withdraw < balance:
+        amount_deduct = balance - amount_withdraw
         print("\nWithdrawal successful!")
-        total = amount_withdraw - balance
-        print("Remaining balance: ", total)
+        print("Remaining balance: ", amount_deduct)
+        return amount_deduct
+
+    elif amount_withdraw > balance:
+        print("\nInsufficient balance!")
 
     else:
-        print("invalid")
+        print("invalid input")
 
 
 while True:
@@ -40,10 +47,13 @@ while True:
         check_balance()
 
     elif choice == 2:
-        deposit()
+        new_balance = deposit()
+        balance = new_balance
+        print("New balance: ", new_balance)
 
     elif choice == 3:
-        withdraw()
+        new_balance = withdraw()
+        balance = new_balance
 
     elif choice == 4:
         print("Thank you for using the ATM!")
