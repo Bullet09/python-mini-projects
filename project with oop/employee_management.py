@@ -1,6 +1,5 @@
-
 class Employee:
-
+    # Employee Method
     def __init__(self, name, position, salary):
         self.name = name
         self.position = position
@@ -10,15 +9,34 @@ class Employee:
         print(
             f"\nName: {self.name} \nPosition: {self.position} \nSalary: {self.salary}")
 
+    # Salary Raise Method
     def salary_raise(self):
-        pass
+        try:
+            raise_input = int(input("Enter raise amount: "))
+        except ValueError:
+            print("Invalid input. Raise should only be numbers")
+            return
+        if raise_input <= 0:
+            print("Invalid input. Negative amount is not allowed.")
+            return
+        added_salary = raise_input + self.salary
+        self.salary = added_salary
+        print("Current salary: ", added_salary)
 
+    # Salary Update Method
     def salary_update(self):
-        pass
+        current_salary = self.salary
+        print("Current salary: ", current_salary)
+        try:
+            updated_salary = int(input("Enter new salary: "))
+            self.salary = updated_salary
+        except ValueError:
+            print("Invalid input. Salary amount should only be numbers")
 
 
-Employee1 = Employee("Adrian", "Software Developer", 125000)
+employee1 = Employee("Adrian", "Software Developer", 125000)
 
+# MENU
 print("\n===== EMPLOYEE MANAGEMENT SYSTEM =====")
 print("\n1. Display Employee Information")
 print("2. Salary Raise")
@@ -30,11 +48,11 @@ except ValueError:
     print("Invalid input. Choose a number only")
 
 if choice == 1:
-    display_info()
+    employee1.display_info()
 elif choice == 2:
-    salary_raise()
-elif choice == 3():
-    salary_update()
+    employee1.salary_raise()
+elif choice == 3:
+    employee1.salary_update()
 else:
     print("Invalid input. Choose only from 1-3!")
     pass
