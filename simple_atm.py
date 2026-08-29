@@ -56,7 +56,7 @@ while True:
         balance = new_balance
 
     elif choice == 4:
-        print("Thank you for using the ATM!")
+        print("Goodbye!")
         break
 
     else:
