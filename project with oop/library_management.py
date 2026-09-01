@@ -27,8 +27,21 @@ class Book:
 class Library:
     books = []
 
-    def __init__(self, books):
-        self.books = books
+    def __init__(self):
+        self.books = []
+
+    def add_book(self, book):
+        self.books.append(book)
+
+    def display_books(self):
+        for i in self.books:
+            i.display_info()
+
+    def find_book(self, title):
+
+        for i in self.books:
+            if i.title == title:
+                i.display_info()
 
 
 book1 = Book("Python Crash Course", "Eric Matthes")
