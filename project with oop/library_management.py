@@ -38,10 +38,14 @@ class Library:
             i.display_info()
 
     def find_book(self, title):
-
+        found = False
         for i in self.books:
             if i.title == title:
                 i.display_info()
+                found = True
+
+        if found == False:
+            print("Book is not found.")
 
 
 book1 = Book("Python Crash Course", "Eric Matthes")
