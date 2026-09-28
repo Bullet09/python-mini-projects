@@ -13,7 +13,8 @@ class Account:
         self.transaction = []
 
     def add_transaction(self, transaction):
-        self.transaction = transaction
+        self.transaction.append(transaction)
+    
 
 
 class Transaction:
@@ -22,3 +23,4 @@ class Transaction:
         self.amount = amount
         self.transaction_type = transaction_type
         self.date = date
+
