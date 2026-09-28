@@ -4,7 +4,7 @@ students = np.array([
     ["Adrian", 85, 92, 78],
     ["Maria", 91, 88, 95],
     ["John", 76, 84, 80],
-    ["Sarah", 95, 93, 97],
+    ["Alexa", 95, 93, 97],
     ["Mark", 68, 75, 72]
 ])
 
@@ -50,14 +50,30 @@ below_average_names = students[:, 0][below_average]
 below_average_count = np.sum(below_average)
 overall_average = np.mean(numeric_scores)
 subject_averages = np.mean(numeric_scores, axis=0)
+strongest_subject_index = np.argmax(subject_averages)
+subjects = np.array(["Math", "Science", "English"])
+strongest_subject = subjects[strongest_subject_index]
+strongest_subject_average = subject_averages[strongest_subject_index]
+
+weakest_subject_index = np.argmin(subject_averages)
+weakest_subject = subjects[weakest_subject_index]
+weakest_subject_average = subject_averages[weakest_subject_index]
+
+subject_average_difference = strongest_subject_average - weakest_subject_average
 
 print("High performers:", high_performers_names)
 print("Performers:", high_performer_count)
 print("TOP 1:", best_student_name)
 print("Average:", best_student_average)
 print("Highest subject scores:", highest_subject_scores)
-print("Student:", highest_score_student)
-print("Below average:", below_average_names)
+print("TOP 1 Student:", highest_score_student)
+print("\nBelow average:", below_average_names)
 print("Below average students:", below_average_count)
-print("Overall average:", overall_average)
+print("\nOverall average:", overall_average)
 print("Subject averages:", subject_averages)
+print("\nStrongest subject index:", strongest_subject_index)
+print("Strongest subject:", strongest_subject)
+print("Average:", strongest_subject_average)
+print("\nWeakest subject index:", weakest_subject_index)
+print(weakest_subject_average)
+print("\nSubject difference:", subject_average_difference)
